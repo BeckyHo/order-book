@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cancel order</title>
+</head>
+<body>
+<form action="/trade/cancel-order" method="get">
+    direction:<select name="direction">
+                <option value="1000">BUY</option>
+                <option value="1001">SELL</option>
+            </select><br>
+    orderId:<input type="text" name="orderId"/><br>
+    price:<input type="text" name="price"/><br>
+    <input type="submit" value="CANCEL">
+</form>
+</body>
+</html>

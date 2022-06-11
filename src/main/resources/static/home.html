@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>welcome to matrixport exchange</title>
+</head>
+<body>
+    <form action="/trade/add-order" method="get">
+        accountNo:<select name="accountNo">
+                    <option value="Zik">Zik</option>
+                    <option value="Mk">Mk</option>
+                    <option value="Jame">Jame</option>
+                    <option value="JB">JB</option>
+                    <option value="Qk">Qk</option>
+                    <option value="En">En</option>
+                  </select><br>
+        direction: <select name="direction">
+                        <option value="1000">BUY</option>
+                        <option value="1001">SELL</option>
+                    </select><br>
+        price:<input type="text" name="price"/><br>
+        amount:<input type="text" name="amount"/><br>
+        <input type="submit" value="ORDER">
+    </form>
+</body>
+</html>
