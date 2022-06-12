@@ -20,7 +20,7 @@ The project directory structure is as follows：
 
 ### web service start
 two ways: 
-1. Java command to start: java -jar order-book.jar (After executing the command mvn clean package in the project and directory, you can find it in the target directory)
+1. Java command to start: java -jar order-book.jar (here download: https://github.com/BeckyHo/order-book/tree/master/src/main/resources/jarFile)
 2. Source code startup method:
    1. Open the OrderBookApplication class
    2. right click->RUN 'OrderBookApplication' main() 
