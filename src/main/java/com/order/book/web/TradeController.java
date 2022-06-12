@@ -23,11 +23,6 @@ public class TradeController {
     @Resource
     private TradeEngine tradeEngine;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/home")
-    public String home() {
-        return "home";
-    }
-
     @RequestMapping(method = RequestMethod.GET, value = "/add-order")
     public String order(String accountNo, String direction, String price, String amount) {
         Order order = new Order();
@@ -35,8 +30,14 @@ public class TradeController {
         order.setOrderTime(new Date());
         order.setAccountNo(accountNo);
         order.setDirection(direction);
-        order.setOrderPrice(new BigDecimal(price));
-        order.setOrderAmount(new BigDecimal(amount));
+        BigDecimal orderPrice = new BigDecimal(price);
+        BigDecimal orderAmount = new BigDecimal(amount);
+        if (orderPrice.compareTo(BigDecimal.ZERO) <= 0 || orderAmount.compareTo(BigDecimal.ZERO) <= 0) {
+            System.out.println("invalid param");
+            return ErrorCode.INVALID_PARAM;
+        }
+        order.setOrderPrice(orderPrice);
+        order.setOrderAmount(orderAmount);
 
         return tradeEngine.processOrder(order);
     }
@@ -75,8 +76,14 @@ public class TradeController {
     public String cancelOrder(String direction, Long orderId, String price) {
         Order order = new Order();
         order.setDirection(direction);
+
+        BigDecimal orderPrice = new BigDecimal(price);
+        if (orderId == null || orderPrice.compareTo(BigDecimal.ZERO) <= 0) {
+            return ErrorCode.INVALID_PARAM;
+        }
+
         order.setOrderId(orderId);
-        order.setOrderPrice(new BigDecimal(price));
+        order.setOrderPrice(orderPrice);
         return tradeEngine.cancel(order) ? ErrorCode.SUCCESS : ErrorCode.FAIL;
     }
 

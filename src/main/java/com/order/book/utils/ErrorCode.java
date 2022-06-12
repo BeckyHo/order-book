@@ -9,4 +9,6 @@ public class ErrorCode {
     public static final String SUCCESS = "success";
 
     public static final String FAIL = "fail";
+
+    public static final String INVALID_PARAM = "invalid param";
 }
