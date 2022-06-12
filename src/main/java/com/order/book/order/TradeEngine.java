@@ -55,7 +55,7 @@ public class TradeEngine {
         MatchResult matchResult = new MatchResult(takerOrder);
         while (true) {
             Order makerOrder = makerBook.getFirstOrder();
-            // 对手放无订单
+            // 对手方无订单
             if (makerOrder == null) {
                 break;
             }

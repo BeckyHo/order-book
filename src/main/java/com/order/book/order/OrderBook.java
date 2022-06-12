@@ -34,7 +34,7 @@ public class OrderBook {
     }
 
     public boolean addOrder(Order order) {
-        return this.orderBookMap.put(new OrderSortKey(order.getOrderPrice(), order.getOrderId()), order) == null;
+        return this.orderBookMap.put(new OrderSortKey(order.getOrderPrice(), order.getOrderId()), order) != null;
     }
 
     public int size() {
